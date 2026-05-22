@@ -25,7 +25,7 @@ public class FixPassPointNameSceneCommand implements Command {
         var sourceParamValue = CmdArgExtractor.getArgValue(sourceParam);
 
         var outputDirectory = FileUtils.createOutputDirectory(FileUtils.getParentDirectoryPath(sourceParamValue), "output");
-        var sourcePathList = FileUtils.resolvePath(sourceParamValue);
+        var sourcePathList = FileUtils.resolveToFileList(sourceParamValue);
 
         log.debug("Source paths : {}", sourcePathList);
         log.debug("Output dir path : {}", outputDirectory);

@@ -38,7 +38,7 @@ java -jar dis3-modding-automation_1.0.0.jar -command=имя_команды -оп
 1. **xls_to_character_stats**
     
    Описание: 
-     - Конвертировать специальный файл в формате Excel с параматрами юнитов в файлы вида *.stat
+     - Конвертировать специальный файл в формате Excel с параматрами юнитов в файлы вида *.char
 
    Параметры:
      - command=xls_to_character_stats
@@ -48,20 +48,20 @@ java -jar dis3-modding-automation_1.0.0.jar -command=имя_команды -оп
         - абсолютный путь от корневой директории диска до Excel файла
 
    Результат выполнения команды:
-     - файлы *.stats в директории output, где лежит Excel файл
+     - файлы *.char в директории output, где лежит Excel файл
          
 
 2. **character_stats_to_xls**
 
    Описание: 
-     - Конвертировать игровые файлы вида *.stat в специальный файл в формате Excel. 
+     - Конвертировать игровые файлы вида *.char в специальный файл в формате Excel. 
 
    Параметры:
      - command=character_stats_to_xls
         - имя команды
 
      - source="/home/darrmirr/downloads/disciples3/decode/resources/Profiles/stats/*"
-        - абсолютный путь от корневой директории диска до директории с игровыми файлами вида *.stat
+        - абсолютный путь от корневой директории диска до директории с игровыми файлами вида *.char
 
    Результат выполнения команды:
      - файл Excel в директории output внутри директории, указанной в параметре source
@@ -200,7 +200,7 @@ java -jar dis3-modding-automation_1.0.0.jar -command=predefined_command_name -co
 1. **xls_to_character_stats**
 
    Description: 
-     - Convert special organized Excel file with unit profiles into *.stat game files.
+     - Convert special organized Excel file with unit profiles into *.char game files.
 
    Arguments:
      - command=xls_to_character_stats
@@ -210,19 +210,19 @@ java -jar dis3-modding-automation_1.0.0.jar -command=predefined_command_name -co
         - absolute path to Excel file.
 
    Invocation result:
-     - *.stats files in output directory aside to Excel source file.
+     - *.char files in output directory aside to Excel source file.
 
 2. **character_stats_to_xls**            
 
    Description: 
-     - Convert *.stat game files into special organized Excel file with unit profiles
+     - Convert *.char game files into special organized Excel file with unit profiles
 
    Arguments:
      - command=character_stats_to_xls
         - command name
 
      - source="/home/darrmirr/downloads/disciples3/decode/resources/Profiles/stats/*"
-        - absolute path to directory with *.stat game files in it.
+        - absolute path to directory with *.char game files in it.
 
    Invocation result:
      - special organized Excel file with unit profiles in output directory in source path directory.

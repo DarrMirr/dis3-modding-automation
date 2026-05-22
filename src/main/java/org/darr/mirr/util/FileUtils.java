@@ -28,21 +28,27 @@ import java.util.stream.Stream;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class FileUtils {
 
-    public static List<String> resolvePath(String path) {
-        if (path.endsWith("*")) {
-            var directory = getParentDirectoryPath(path);
-            var fileList = directory.toFile().listFiles();
-            if (fileList == null || fileList.length == 0) {
-                throw new IllegalStateException("There is no files in the directory '" + directory + "'");
+    public static List<String> resolveToFileList(String path) {
+        List<String> filePathList;
+        if (path.endsWith("*") || Paths.get(path).toFile().isDirectory()) {
+            if (path.endsWith("*")) {
+                path = path.substring(0, path.length() - 1);
             }
-            return Stream
+            var fileList = Paths.get(path).toFile().listFiles();
+            if (fileList == null || fileList.length == 0) {
+                throw new IllegalStateException("There is no files in the directory '" + path + "'");
+            }
+            filePathList = Stream
                     .of(fileList)
                     .filter(file -> !file.isDirectory())
                     .map(File::getAbsolutePath)
                     .toList();
         } else {
-            return List.of(path);
+            filePathList = List.of(path);
         }
+
+        log.debug("Resolve path to file list : path={}, file_list={}", path, filePathList);
+        return filePathList;
     }
 
     public static Path getParentDirectoryPath(String path) {

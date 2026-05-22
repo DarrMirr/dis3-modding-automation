@@ -39,7 +39,7 @@ public class InsertChildSceneBlockCommand implements Command {
     }
 
     private Map<String, SceneArena> prepareTarget(String targetPath) {
-        var targetPathList = FileUtils.resolvePath(targetPath);
+        var targetPathList = FileUtils.resolveToFileList(targetPath);
         var targetContentMap = FileUtils.readContent(targetPathList);
         return targetContentMap
                 .entrySet()
