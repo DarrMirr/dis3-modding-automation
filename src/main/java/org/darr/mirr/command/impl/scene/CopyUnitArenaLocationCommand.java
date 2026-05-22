@@ -16,7 +16,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Slf4j
 public class CopyUnitArenaLocationCommand implements Command {
@@ -31,7 +30,7 @@ public class CopyUnitArenaLocationCommand implements Command {
 
         var sourcePath = CmdArgExtractor.getArgValue(sourceParam);
         var targetParamValue = CmdArgExtractor.getArgValue(targetParam);
-        var targetPathList = FileUtils.resolvePath(targetParamValue);
+        var targetPathList = FileUtils.resolveToFileList(targetParamValue);
 
         log.debug("Source path : {}", sourcePath);
         log.debug("Target paths : {}", targetPathList);

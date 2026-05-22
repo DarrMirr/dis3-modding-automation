@@ -25,7 +25,7 @@ public class CharacterStatsToXlsCommand implements Command {
         log.info("Source parameter : {}", sourceParam);
 
         var sourcePath = CmdArgExtractor.getArgValue(sourceParam);
-        var sourcePathList = FileUtils.resolvePath(sourcePath);
+        var sourcePathList = FileUtils.resolveToFileList(sourcePath);
 
         log.debug("Source paths : {}", sourcePath);
 
